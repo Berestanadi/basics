@@ -1,38 +1,34 @@
 package ru.netology.service;
 
-import org.testng.annotations.Test;
-
-import static org.testng.Assert.*;
-
 public class CashbackHackServiceTest {
 
-    @Test
+    @org.junit.Test
     public void shouldtestRemainUnderBoundary() {
         CashbackHackService service = new CashbackHackService();
 
-        int actual = service.remain(900);
-        int expected = 100;
+        int actual = service.remain(999);
+        int expected = 1;
 
-        org.testng.Assert.assertEquals(actual, expected);
+        org.junit.Assert.assertEquals(expected,actual);
     }
 
-    @Test
+    @org.junit.Test
     public void shouldtestRemainEqualBoundary() {
         CashbackHackService service = new CashbackHackService();
 
         int actual = service.remain(1000);
         int expected = 0;
 
-        org.testng.Assert.assertEquals(actual, expected);
+        org.junit.Assert.assertEquals(expected,actual);
     }
 
-    @Test
+    @org.junit.Test
     public void shouldtestRemainOverBoundary() {
         CashbackHackService service = new CashbackHackService();
 
-        int actual = service.remain(1400);
-        int expected = 600;
+        int actual = service.remain(1599);
+        int expected = 401;
 
-        org.testng.Assert.assertEquals(actual, expected);
+        org.junit.Assert.assertEquals(expected,actual);
     }
 }
